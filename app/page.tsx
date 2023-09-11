@@ -67,7 +67,10 @@ export default function Home() {
 			) : null}
 
 			{features.length ? (
-				<section id={Sections.FEATURES}>
+				<section id={Sections.FEATURES} className='my-12 pb-12'>
+					<label className='text-lg mb-4 block text-center'>
+						These are the features we understood from your description. Please, feel free to edit
+					</label>
 					{features.map((feature) => (
 						<Feature key={feature.title} feature={feature} />
 					))}
