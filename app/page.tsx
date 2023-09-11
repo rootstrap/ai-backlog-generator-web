@@ -1,6 +1,11 @@
 import { revalidatePath } from 'next/cache';
-import { backlogApi, Fields, Sections, SubmitButton } from '@/app/common';
-import type { LongDescriptionResponse, FeaturesResponse } from '@/app/common';
+
+import { backlogApi } from '@/app/common/api';
+import { SubmitButton } from '@/app/common/components';
+import { Fields, Sections } from '@/app/common/types';
+import type { LongDescriptionResponse, FeaturesResponse } from '@/app/common/types';
+
+import { ShortDescriptionForm } from '@/app/product/components';
 
 let long_description = '';
 
@@ -40,6 +45,7 @@ export default function Home() {
 		<>
 			<h1 className='py-8 text-2xl font-semibold text-center'>Product Definition</h1>
 			<section id={Sections.SIMPLE_DESCRIPTION}>
+				<ShortDescriptionForm />
 				<form action={createEnahncedDescription}>
 					<div className='flex flex-col mb-1 gap-4 text-center'>
 						<label className='text-lg' htmlFor='simple-description-input'>

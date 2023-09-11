@@ -1,0 +1,1 @@
+export { ShortDescriptionForm } from './ShortDescriptionForm';
