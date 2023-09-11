@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 				<div className='w-full h-full min-h-screen bg-background text-dark'>
 					<header className='bg-background border-b border-gray-500'>
 						<div className='max-w-7xl mx-auto w-full flex gap-3 items-baseline px-8 py-4'>
-							<Image src={logo} alt='rootstrap' width={30} height={30} />
+							<Image src={logo} alt='rootstrap' width={30} />
 							<p className='font-bold text-primary'>Backlog Generator</p>
 						</div>
 					</header>
