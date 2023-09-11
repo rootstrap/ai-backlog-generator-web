@@ -1,19 +1,24 @@
 'use client';
 import React from 'react';
 import cn from 'classnames';
-import { experimental_useFormStatus as useFormStatus } from 'react-dom';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 	variant: 'primary' | 'secondary' | 'link' | 'unstyled';
+	isLoading?: boolean;
 	className?: string;
 	children: React.ReactNode;
 }
 
-export const SubmitButton = ({ variant, className, children, disabled, ...buttonProps }: Props) => {
-	const { pending } = useFormStatus();
+export const Button = ({
+	variant,
+	className,
+	children,
+	disabled,
+	isLoading,
+	...buttonProps
+}: Props) => {
 	return (
 		<button
-			type='submit'
 			className={cn(
 				'w-full md:w-fit md:min-w-[75px] rounded-md py-2 px-4 mb-2 border',
 				{ 'bg-gray-500 cursor-not-allowed': disabled },
@@ -25,9 +30,10 @@ export const SubmitButton = ({ variant, className, children, disabled, ...button
 				{ 'hover:opacity-75 hover:underline': variant === 'link' },
 				className
 			)}
+			disabled={disabled || isLoading}
 			{...buttonProps}
 		>
-			{pending ? 'Loading...' : children}
+			{isLoading ? 'Loading...' : children}
 		</button>
 	);
 };
